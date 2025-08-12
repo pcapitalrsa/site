@@ -1,203 +1,263 @@
-<header class="header animate__animated animate__fadeIn">
-  <div class="container">
-    <div class="header-content">
-      <div class="logo-container">
-        <img src="includes/img/logoPP.png" alt="Logo Penitenciária da Capital - RSA" class="logo" />
-      </div>
-      <div class="title-container">
-        <h1>PENITENCIÁRIA DA CAPITAL - RSA</h1>
-        <p class="subtitle">Atendimento Virtual - Secretaria da Administração Penitenciária</p>
-      </div>
-    </div>
-  </div>
-</header>
-
-<style>
-  .header {
-    background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
-    color: white;
-    padding: 15px 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 1000;
-  }
-
-  .header-content {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 10px 0;
-  }
-
-  .logo-container {
-    height: 70px;
-    width: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logo {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
-  }
-
-  .title-container {
-    flex: 1;
-    min-width: 200px;
-  }
-
-  .header h1 {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    color: #fff;
-  }
-
-  .subtitle {
-    margin: 5px 0 0;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 300;
-  }
-
-  .main-nav {
-    margin-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 15px;
-  }
-
-  .nav-list {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 15px;
-  }
-
-  .nav-list li a {
-    color: white;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .nav-list li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .nav-list li a i {
-    font-size: 1rem;
-  }
-
-  .mobile-menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 5px;
-  }
-
-  @media (max-width: 992px) {
-    .header h1 {
-      font-size: 1.3rem;
-    }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penitenciária da Capital - RSA</title>
     
-    .subtitle {
-      font-size: 0.85rem;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .header-content {
-      justify-content: space-between;
-    }
-
-    .logo-container {
-      height: 60px;
-      width: 60px;
-    }
-
-    .mobile-menu-toggle {
-      display: block;
-      order: 2;
-    }
-
-    .nav-list {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      background-color: #1a2530;
-      padding: 15px;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-
-    .nav-list.active {
-      display: flex;
-    }
-
-    .nav-list li a {
-      padding: 10px 15px;
-    }
-  }
-
-  @media (max-width: 576px) {
-    .header h1 {
-      font-size: 1.2rem;
-    }
+    <!-- Favicon -->
+    <link rel="icon" href="includes/img/logoPP.ico" type="image/x-icon">
     
-    .subtitle {
-      font-size: 0.8rem;
-    }
-
-    .logo-container {
-      height: 50px;
-      width: 50px;
-    }
-  }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const navList = document.querySelector('.nav-list');
-
-    menuToggle.addEventListener('click', function() {
-      navList.classList.toggle('active');
-      const icon = this.querySelector('i');
-      if (navList.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    });
-
-    // Fechar menu quando um item for clicado (para mobile)
-    const navItems = document.querySelectorAll('.nav-list li a');
-    navItems.forEach(item => {
-      item.addEventListener('click', function() {
-        if (window.innerWidth <= 768) {
-          navList.classList.remove('active');
-          const icon = menuToggle.querySelector('i');
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
+    <!-- Font Awesome CDN para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Animate.css para animações -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        :root {
+            --primary-color: #1a3e72;
+            --secondary-color: #e63946;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --transition: all 0.3s ease;
         }
-      });
-    });
-  });
-</script>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            animation: fadeInDown 1s;
+        }
+        
+        .logo {
+            height: 60px;
+            margin-right: 1rem;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .title-container {
+            text-align: center;
+            animation: fadeIn 1.5s;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+            color: white;
+        }
+        
+        .subtitle {
+            font-weight: 300;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+        }
+        
+        nav {
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 1rem;
+            animation: fadeIn 2s;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links li a i {
+            margin-right: 0.5rem;
+        }
+        
+        .nav-links li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .nav-links li a.active {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+                position: relative;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+                height: 50px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                margin-top: 0;
+                padding: 1rem 0;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links li a {
+                justify-content: center;
+                padding: 0.8rem;
+            }
+            
+            nav.active {
+                display: block;
+                animation: fadeIn 0.5s;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="logo-container">
+                <img src="includes/img/logoPP.png" alt="Logo Penitenciária da Capital - RSA" class="logo" />
+                <div class="title-container">
+                    <h1>PENITENCIÁRIA DA CAPITAL - RSA</h1>
+                    <p class="subtitle">Atendimento Virtual - Secretaria da Administração Penitenciária</p>
+                </div>
+            </div>
+            
+            <nav id="mainNav">
+                <ul class="nav-links">
+                    <li><a href="#"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="#"><i class="fas fa-info-circle"></i> Sobre</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i> Agendamentos</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> Contato</a></li>
+                    <li><a href="#"><i class="fas fa-user-shield"></i> Área Restrita</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <script>
+        // Menu mobile
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+            this.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Efeito de scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Adiciona classe active ao link da página atual
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-links li a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
