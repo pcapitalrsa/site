@@ -1,0 +1,215 @@
+<<<<<<< HEAD
+steste
+=======
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PENITENCIÁRIA DA CAPITAL - RSA</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .menu-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .menu-item i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #000000;
+        }
+        .menu-item h3 {
+            margin-top: 0;
+            color: #000000;
+        }
+        .menu-item p {
+            color: #666;
+        }
+        .content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-button i {
+            margin-right: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #000000;
+            color: white;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .header {
+            background-color: #000000;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        .header p {
+            margin: 5px 0 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header será incluído via JavaScript -->
+    <div id="header"></div>
+
+    <div class="container">
+        <div class="menu-container" id="main-menu">
+            <!-- Itens do menu serão gerados dinamicamente -->
+        </div>
+
+        <div class="content" id="content" style="display: none;">
+            <a href="#" class="back-button" id="back-button"><i class="fas fa-arrow-left"></i> Voltar ao menu</a>
+            <div id="dynamic-content"></div>
+        </div>
+    </div>
+
+    <!-- Footer será incluído via JavaScript -->
+    <div id="footer"></div>
+
+    <a href="https://wa.me/551112345678" class="whatsapp-float animate__animated animate__bounceIn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Carrega o header
+            $("#header").load("header.html");
+            
+            // Carrega o footer
+            $("#footer").load("footer.html");
+            
+            // Dados do menu
+            const menuItems = [
+                { id: 1, icon: "fa-search", title: "LOCALIZAÇÃO DE DETENTOS", content: `📍 *LOCALIZAÇÃO NA UNIDADE*  <br><br>O Paradeiro é o sistema utilizado por todos para localizar uma pessoa custodiada em Unidades Prisionais da Secretaria da Administração Penitenciária do Estado de São Paulo.<br><br>Para saber em qual Unidade Prisional está a pessoa custodiada, será necessário fornecer algumas informações.<br><br>O solicitante poderá fazer a pesquisa por Matrícula, CPF, RG ou por Nome + Nome da mãe + Data de nascimento. Além disso, o(a) solicitante deve ter uma conta no Gov.br.<br><br>🔐 A conta Gov.br é uma identificação digital gratuita que permite aos cidadãos brasileiros acessar serviços públicos digitais com segurança. Caso ainda não tenha cadastro no Gov.br, <a href="https://portal.sap.sp.gov.br/formularios/paradeiro" target="_blank">clique aqui</a> para ser direcionado à página de cadastro.<br><br>⚠️ A cada nova consulta, será necessário realizar um novo login no Gov.br.<br><br>Acesse o sistema aqui:<br>🌐 <a href="https://portal.sap.sp.gov.br/formularios/paradeiro" target="_blank">https://portal.sap.sp.gov.br/formularios/paradeiro</a>` },
+                { id: 2, icon: "fa-users", title: "ROL DE VISITAS", content: `📝 *ROL DE VISITAS*  <br><br> Ao adentrar na unidade prisional o acautelado será chamado para indicar de quais familiares ele quer receber visitas, ou seja, o familiar *primeiro deve ser incluído pelo acautelado.*<br><br>*Após essa indicação o familiar* poderá encaminhar a documentação necessária para confecção da carteirinha de visitante.<br><br>*Carteirinhas possuem validade de 1 (um) ano, após esse prazo deverão ser renovadas.*<br><br>*Não há atendimento presencial.*<br>De segunda a sexta-feira, os documentos para cadastro do visitante podem ser deixados na sub-portaria da unidade prisional.<br><br>*O cadastro do ROL* será feito pelo seguinte e-mail: <a href="mailto:emailrol@sap.sp.gov.br">emailrol@sap.sp.gov.br</a> <br><br>- Informar: Nome completo ou matrícula do reeducando;<br>- Informar: um telefone para contato;<br>- Enviar 01 (uma) foto de rosto com fundo branco para a identificação do visitante. (JPEG ou PNG)<br>- Escanear CNH ou RG contendo número do CPF do visitante (ambos os documentos deverão estar abertos, "fora do plástico" e em um único PDF);<br>- Enviar Atestado de Antecedentes Criminais, com validade máxima de 30 (trinta) dias emitido pela Polícia Civil do mesmo Estado da emissão do RG. (Enviar Certidão de OBJETO E PÉ, para quem possuir apontamentos Criminais). Para a emissão de certidões do Estado de São Paulo acesse: SSP;<br>- Escanear o comprovante de endereço que deverá estar no nome do(a) visitante e ter data máxima de até 6 meses. Caso o comprovante não esteja no nome do visitante, a pessoa na qual se encontra o nome do comprovante deverá fazer uma declaração afirmando que o visitante reside naquele endereço e reconhecer firma em cartório, e escanear o comprovante de endereço (água, energia, internet, cartão de crédito) (PDF);<br>- Se for casada(o) legalmente, escanear a certidão de casamento ou averbação do divórcio se houver. (PDF);<br>- Escanear declaração de amásia, com assinatura de duas testemunhas, reconhecida em cartório. (PDF);<br>- Se tiver filhos com o reeducando, escanear o RG, CPF e/ou certidão de nascimento dos filhos. (PDF);<br>- Para cadastro de "avós", escanear a certidão de nascimento do reeducando. (PDF);<br>- Se fizer uso de DIU, possuir pinos ou placas de metal no corpo, ou fizer uso de prótese dentária deve enviar laudo específico. (PDF);<br>- Informar se é ou não FUMANTE;<br><br>*OBS: Após o recebimento dos documentos, os mesmos passarão por uma análise, sendo respondido em até 5 dias úteis. Favor aguardar a resposta do Rol.*` },
+                { id: 3, icon: "fa-box-open", title: "SEDEX/JUMBO e Presencial", content: `📦 *SEDEX OU JUMBO PRESENCIAL*<br><br>Apenas visitantes autorizadas(os) podem manter contato com a pessoa presa.<br>A entrega do "jumbo" deverá ser feita *uma vez por semana*, *presencialmente* ou por *correspondência*.<br>Assim sendo, só poderá ser entregue ao preso *um* "jumbo" no prazo de *sete* dias, somente podendo receber outro, após uma semana.<br>Se a entrega for presencial, o prazo será contado a partir do dia da entrega.<br>Já se o "jumbo" chegar por correspondência, o prazo será contado a partir da *data de postagem* contida na caixa de correspondência.<br><br>Clique no link abaixo pra visualizar os itens permitidos:<br><a href="https://www1.sap.sp.gov.br/jumbo-padronizado-unidades.html" target="_blank">https://www1.sap.sp.gov.br/jumbo-padronizado-unidades.html</a>` },
+                { id: 4, icon: "fa-heart", title: "CONEXÃO FAMILIAR", content: `👨‍👩‍👧‍👦 *CONEXÃO FAMILIAR*<br><br>Conexão Familiar - Mensagem via formulário.<br>O formulário deverá ser preenchido corretamente, sendo os campos identificados com asterisco (*) obrigatórios.<br><br>Cada reeducando(a) poderá receber *uma mensagem POR MÊS*.<br><br>As mensagens encaminhadas aos reeducandos(as) serão impressas e entregues ao destinatário.<br>O/A visitante receberá por e-mail a confirmação do recebimento pelo reeducando.<br>⚠️ *NÃO HAVERÁ OUTRA RESPOSTA*, apenas a confirmação do recebimento da mensagem.<br><br>Lembramos que este meio de comunicação se destina exclusivamente ao contato de pessoas cadastradas no rol de visitas, caso contrário a mensagem não será encaminhada ao reeducando(a).<br><br>*EXCEÇÃO:* Os familiares dos pacientes nos *HOSPITAIS DE CUSTÓDIA E TRATAMENTO PSIQUIÁTRICO* podem receber *uma mensagem POR SEMANA*, pois estão em tratamento médico.<br><br>📌 Acesse o formulário: <a href="https://portal.sap.sp.gov.br/formularios/conexao/familiar" target="_blank">https://portal.sap.sp.gov.br/formularios/conexao/familiar</a>` },
+                { id: 5, icon: "fa-tshirt", title: "VESTUÁRIO para visita", content: `👚 *VESTUÁRIO PARA VISITA DE FINAL DE SEMANA*<br><br>✅ *PERMITIDO:*<br>• Uso de camisetas com manga, podendo ser curta ou longa, *exceto* nas cores azul marinho, branca, cáqui/marrom e preta;<br>• Uso de calça de moletom ou legging, sem botões metálicos, sem zíper e sem estampas, *exceto* nas cores azul marinho, branca, cáqui/marrom e preta;<br>• Às visitantes mulheres é possibilitado, ainda, o uso de saias com comprimento abaixo dos joelhos, do tipo "midi";<br>• Uso de chinelos de dedo, de solado fino e tiras de borracha simples;<br>• Em dias de baixas temperaturas, o(a) visitante poderá ingressar no estabelecimento penal trajando meias e blusa de moletom, desde que esta última não possua capuz, forros, bolsos, botões metálicos, zíper, *exceto* nas cores azul marinho, branca, cáqui/marrom e preta;<br>• Fica assegurado ao visitante LGBTQIA+ o uso de peças de vestuário, seguindo as regras, conforme sua identidade de gênero.<br><br>🚫 *PROIBIDO:*<br>• Uso de roupas, inclusive peças íntimas, que contenham detalhes em metal, alças removíveis, aros de metal ou plástico/silicone, cadarços ou qualquer material que possa acionar os pórticos de detecção de metal ou representar risco à segurança;<br>• Uso de roupas sobrepostas, exceto em dias de baixa temperatura;<br>• Uso de luvas, meias-calças, capuz, boné, chapéu, touca e quaisquer outros tipos de cobertura;<br>• Troca ou empréstimo de roupas e/ou pertences com pessoas privadas de liberdade;<br>• Prendedores de cabelo em metal ou com partes metálicas;<br>• Tiaras e arcos, tranças ou qualquer outra forma de prendê-los;<br>• Apliques capilares ou quaisquer outros meios que impossibilitem ou dificultem a inspeção mecânica e visual de segurança;<br>• Joias, bijuterias, brincos, óculos escuros, relógios, smartwatch, cintos e piercings;<br>• Chaves e chaveiros;<br>• Dispositivos eletrônicos de qualquer tipo, *exceto* quando utilizados por motivo de saúde mediante apresentação de atestado, laudo médico, exames laboratoriais ou outros meios. Nesse caso, a visita será realizada em parlatório ou outro espaço próprio;<br>• Portar dinheiro, cheque, cartões bancários;<br>• Uso de roupas transparentes, curtas ou decotadas.` },
+                { id: 6, icon: "fa-utensils", title: "ALIMENTOS PERMITIDOS", content: `🍽️ *ALIMENTOS PERMITIDOS NA VISITAÇÃO*  <br><br>*Prato principal*<br>Frios fatiados, pães de forma, salsicha ou linguiça (fatiadas ou moídas), carne fatiada, desfiada ou moída, massa (tipos: gravatinha, espaguete, fettuccine ou parafuso), feijão, lentilha, grão de bico, ervilha, soja e arroz branco.<br><br>Leve em dois recipientes transparentes.<br>O tamanho de cada um deve ser de no máximo *11 cm de altura x 28 cm de comprimento x 15 cm de largura*.<br><br>Não esqueça! Cada recipiente pode conter até *dois* dos itens acima.<br>❌ Não pode: maionese, caroços, ossos, recheios, farinhas diversas e camadas.<br><br>*Saladas*<br>Cenoura, brócolis, couve-flor, berinjela, ervilha, pepino e tomate (sempre fatiados, desfolhados ou ralados).<br><br>Leve em um recipiente transparente medindo até *7 cm de altura x 21 cm de comprimento x 15 cm de largura*.<br>❌ Não pode: caroço, recheio, mistura de maionese ou outros molhos perecíveis.<br><br>*Sobremesa*<br>Leve em um recipiente transparente medindo até *7 cm de altura x 21 cm de comprimento x 15 cm de largura*.<br><br>✅ Pode: doce caseiro (pudim, manjar, bolo simples sem recheio, brigadeiro sem granulado, mousse), doce industrializado (paçoca, maria mole, doce de leite, chocolate em barra, bolo industrializado lacrado), frutas da estação, bolachas e biscoitos industrializados.<br><br>⚠️ Não esqueça: alimentos industrializados devem estar lacrados e dentro dos recipientes especificados. O que não for industrializado deve estar fatiado.<br>❌ Não pode: nada com calda, camadas ou recheio. Não é permitido caroço.<br>Cada recipiente deve conter apenas *um* dos itens permitidos.<br><br>*Bebida*<br>Água ou refrigerante: três garrafas de até dois litros, sem estar congelado e com lacre original.<br><br>*Cigarro*<br>Até dois maços com 20 cigarros ou 100 g de fumo e dois pacotes de palha.<br>Mantenha o selo original do cigarro e, para fumo e palha, a embalagem original da fábrica.<br><br>*Bebês*<br>Até seis anos podem estar acompanhados de leite ou leite em pó hidratados, em duas mamadeiras ou recipientes semelhantes transparentes de até 250 ml (cada).<br>❌ Não pode: nada pastoso, congelado ou alimento em pedaços. O alimento deve ser consumido apenas pela criança.<br><br>⚠️ É permitida a entrada de suco ou iogurte industrializado em recipiente transparente de 200 ml.<br>Criança com doença crônica ou portadora de necessidades especiais pode levar o alimento necessário à sua condição de saúde.<br><br>🔗 Saiba mais: <a href="https://www1.sap.sp.gov.br/visitantes-alimentos-produtos-unidades.html" target="_blank">https://www1.sap.sp.gov.br/visitantes-alimentos-produtos-unidades.html</a>` },
+                { id: 7, icon: "fa-briefcase-medical", title: "SAÚDE - Medicamentos", content: `💊 *SAÚDE - ENTREGA DE MEDICAMENTOS*  <br><br>Medicamentos devem ser entregues na portaria da unidade, acompanhados de *receita médica válida*.<br><br>❌ Não são permitidos medicamentos controlados sem autorização prévia.<br><br>⚠️ A entrega deve ser feita *na mesma data de entrega do jumbo* referente ao pavilhão em que o preso está.` },
+                { id: 8, icon: "fa-gavel", title: "ADVOGADOS (A)", content: `⚖️ *ADVOGADOS (A)*  <br><br>Para agendar entrevista por *teleatendimento* com o reeducando, envie:<br>- Nome completo<br>- Matrícula do detento<br><br>para o email <a href="mailto:dcsd@pc.sap.gov.br">dcsd@pc.sap.gov.br</a>.<br><br>Será encaminhado posteriormente o link, data e horário.<br><br>📍 *Atendimentos presenciais*: das 09h às 16h.` },
+                { id: 9, icon: "fa-balance-scale", title: "OFICIAL DE JUSTIÇA", content: `👮 *OFICIAL DE JUSTIÇA*<br>Para intimações ou procedimentos legais, contate a administração da unidade pelo telefone (11) 1234-5678.` },
+                { id: 10, icon: "fa-hands-helping", title: "ASSISTÊNCIA SOCIAL", content: `🤝 *ASSISTÊNCIA SOCIAL*<br>Atendimento para famílias e reeducandos, agendamento pelo telefone (11) 1234-5680 ou na portaria da unidade.` },
+                { id: 11, icon: "fa-money-bill-wave", title: "PECÚLIO", content: `💰 *PECÚLIO*<br>Para depósitos e saques, utilize as contas oficiais indicadas pela unidade.<br>Consulte saldo e extratos na secretaria.` },
+                { id: 12, icon: "fa-clock", title: "SAÍDA TEMPORÁRIA", content: `⏳ *SAÍDA TEMPORÁRIA*<br>Requisitos: bom comportamento, processo em andamento e autorização judicial.<br>Solicite informações detalhadas na administração.` },
+                { id: 13, icon: "fa-home", title: "APROXIMAÇÃO FAMILIAR", content: `❤️ *APROXIMAÇÃO FAMILIAR*<br>Programa especial para aproximação e reintegração familiar.<br>Consulte critérios e agende através da assistência social.` },
+                { id: 14, icon: "fa-phone", title: "CONTATO", content: `📞 *CONTATO*<br>Central de atendimento: (11) 1234-5678<br>Email: <a href="mailto:contato@penitenciaria.rsa.gov.br">contato@penitenciaria.rsa.gov.br</a><br>Atendimento presencial: Rua Exemplo, 123 - Bairro Centro` },
+                { id: 15, icon: "fa-comment", title: "ELOGIOS OU RECLAMAÇÕES", content: `📝 *ELOGIOS OU RECLAMAÇÕES*<br>Envie sua mensagem e será encaminhada para a ouvidoria da unidade.<br>Agradecemos seu feedback para melhoria contínua.` }
+            ];
+
+            // Gera os itens do menu
+            const menuContainer = $('#main-menu');
+            menuItems.forEach(item => {
+                menuContainer.append(`
+                    <div class="menu-item animate__animated animate__fadeInUp" data-id="${item.id}">
+                        <i class="fas ${item.icon}"></i>
+                        <h3>${item.title}</h3>
+                        <p>Clique para mais informações</p>
+                    </div>
+                `);
+            });
+
+            // Adiciona evento de clique nos itens do menu
+            $('.menu-item').click(function() {
+                const id = $(this).data('id');
+                const item = menuItems.find(i => i.id === id);
+                
+                $('#main-menu').hide();
+                $('#content').show();
+                $('#dynamic-content').html(item.content.replace(/\*/g, '<b>').replace(/\n/g, '<br>'));
+                
+                // Rola para o topo do conteúdo
+                $('html, body').animate({
+                    scrollTop: $('#content').offset().top
+                }, 500);
+            });
+
+            // Adiciona evento de clique no botão de voltar
+            $('#back-button').click(function(e) {
+                e.preventDefault();
+                $('#content').hide();
+                $('#main-menu').show();
+                
+                // Rola para o topo do menu
+                $('html, body').animate({
+                    scrollTop: $('#main-menu').offset().top
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
+>>>>>>> 752eeab (Primeiro Commit - arquivos iniciais)
