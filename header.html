@@ -1,9 +1,211 @@
 <header class="header animate__animated animate__fadeIn">
   <div class="container">
-    <h1>
-      <img src="includes/img/logoPP.png" alt="Logo Penitenciária da Capital - RSA" />
-      PENITENCIÁRIA DA CAPITAL - RSA
-    </h1>
-    <p>Atendimento Virtual - Secretaria da Administração Penitenciária</p>
+    <div class="header-content">
+      <div class="logo-container">
+        <img src="includes/img/logoPP.png" alt="Logo Penitenciária da Capital - RSA" class="logo" />
+      </div>
+      <div class="title-container">
+        <h1>PENITENCIÁRIA DA CAPITAL - RSA</h1>
+        <p class="subtitle">Atendimento Virtual - Secretaria da Administração Penitenciária</p>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <button class="mobile-menu-toggle" aria-label="Abrir menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-list">
+        <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
+
+<style>
+  .header {
+    background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000;
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px 0;
+  }
+
+  .logo-container {
+    height: 70px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .title-container {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+  }
+
+  .subtitle {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+  }
+
+  .main-nav {
+    margin-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 15px;
+  }
+
+  .nav-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-list li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-list li a i {
+    font-size: 1rem;
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  @media (max-width: 992px) {
+    .header h1 {
+      font-size: 1.3rem;
+    }
+    
+    .subtitle {
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header-content {
+      justify-content: space-between;
+    }
+
+    .logo-container {
+      height: 60px;
+      width: 60px;
+    }
+
+    .mobile-menu-toggle {
+      display: block;
+      order: 2;
+    }
+
+    .nav-list {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: #1a2530;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .nav-list.active {
+      display: flex;
+    }
+
+    .nav-list li a {
+      padding: 10px 15px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .header h1 {
+      font-size: 1.2rem;
+    }
+    
+    .subtitle {
+      font-size: 0.8rem;
+    }
+
+    .logo-container {
+      height: 50px;
+      width: 50px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const navList = document.querySelector('.nav-list');
+
+    menuToggle.addEventListener('click', function() {
+      navList.classList.toggle('active');
+      const icon = this.querySelector('i');
+      if (navList.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    // Fechar menu quando um item for clicado (para mobile)
+    const navItems = document.querySelectorAll('.nav-list li a');
+    navItems.forEach(item => {
+      item.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          navList.classList.remove('active');
+          const icon = menuToggle.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+    });
+  });
+</script>
