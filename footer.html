@@ -1,15 +1,98 @@
 <footer class="footer animate__animated animate__fadeIn">
     <div class="container">
-        <p>© 2025 Penitenciária da Capital - RSA. Todos os direitos reservados.</p>
-        <p>
-            <a href="#" style="color: white; margin: 0 10px;"><i class="fas fa-info-circle"></i> Sobre</a>
-            <a href="#" style="color: white; margin: 0 10px;"><i class="fas fa-shield-alt"></i> Privacidade</a>
-            <a href="#" style="color: white; margin: 0 10px;"><i class="fas fa-envelope"></i> Contato</a>
-        </p>
-        <div style="margin-top: 20px;">
-            <a href="#" style="color: white; margin: 0 10px; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
-            <a href="#" style="color: white; margin: 0 10px; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
-            <a href="#" style="color: white; margin: 0 10px; font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Penitenciária da Capital - RSA</h4>
+                <p>Atendimento Virtual</p>
+                <p>Secretaria da Administração Penitenciária</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#" class="footer-link"><i class="fas fa-info-circle"></i> Sobre</a></li>
+                    <li><a href="#" class="footer-link"><i class="fas fa-shield-alt"></i> Privacidade</a></li>
+                    <li><a href="#" class="footer-link"><i class="fas fa-envelope"></i> Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+                <p><i class="fas fa-envelope"></i> contato@penitenciaria.rsa.gov.br</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Penitenciária da Capital - RSA. Todos os direitos reservados.</p>
         </div>
     </div>
+    <style>
+        .footer {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: var(--light-text);
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h4 {
+            color: var(--light-text);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-section p, .footer-section li {
+            margin-bottom: 10px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        
+        .footer-link {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-link:hover {
+            color: var(--light-text);
+        }
+        
+        .footer-link i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </footer>
